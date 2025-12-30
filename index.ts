@@ -30,7 +30,7 @@ app.post("/api/verify-license", async (c) => {
     return c.json({ valid, error });
 });
 
-const port = 3000
+const port = 8080
 console.log(`Server is running on port ${port}`)
 
 serve({
