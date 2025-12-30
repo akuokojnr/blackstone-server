@@ -11,7 +11,12 @@ export const auth = betterAuth({
     plugins: [ 
         username(),
         apiKey({
-            enableMetadata: true
+            enableMetadata: true,
+            rateLimit: {
+                enabled: true,
+                timeWindow: 1000 * 60 * 60 * 24, // 1 day
+                maxRequests: 10, // 5 requests per day
+      },
         }) 
     ],
     trustedOrigins: ["http://localhost:1420"]
