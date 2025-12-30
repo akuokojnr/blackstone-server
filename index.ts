@@ -4,6 +4,8 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { auth } from './lib/auth'
 
+import "dotenv/config"
+
 const app = new Hono()
 
 app.use("/*", cors({
@@ -30,7 +32,7 @@ app.post("/api/verify-license", async (c) => {
     return c.json({ valid, error });
 });
 
-const port = 8080
+const port = parseInt(process.env.PORT!) || 3000;
 console.log(`Server is running on port ${port}`)
 
 serve({
